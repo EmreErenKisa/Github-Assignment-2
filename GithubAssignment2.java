@@ -1,4 +1,4 @@
-public class GithubAssignment2 {
+
 //Method to find the sum of elements with odd and even-numbered indexes
 public static String oddEven(int[] array)
 {
@@ -19,4 +19,4 @@ public static String oddEven(int[] array)
     String counts = "Sum of the elements with odd indexes: " + oddCount + ". Sum of the elements with even indexes: " + evenCount;
     return counts;
 }
-}
+
