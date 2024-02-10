@@ -4,7 +4,7 @@ import java.util.Scanner
 /**
  * Apply some array operations with a terminal menu.
  */
-public class Main {
+public class GithubAssignment2 {
     public static void main(String[] args) {
         boolean wannaContinue = true;
         boolean arrayCreated = false;
