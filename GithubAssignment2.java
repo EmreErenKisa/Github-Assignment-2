@@ -1,7 +1,4 @@
-
-
-
-import java.util.Scanner
+import java.util.Scanner;
 
 /**
  * Apply some array operations with a terminal menu.
@@ -50,14 +47,15 @@ public class GithubAssignment2 {
         } while(invalidEntered);
 
         return output;
-    }  
+    }
+
     /**
     * Method to find the smallest integer in the list of integers
     * @param numberList - the list of numbers
     * @return the smallest integer in the list
     */
     public static int findMinimum(int[] numberList) {
-      int smallestNumber = numberlist[0];
+      int smallestNumber = numberList[0];
 
       for(int i = 1; i < numberList.length; i++) {
         if(numberList[i] <= smallestNumber) {
@@ -73,7 +71,7 @@ public class GithubAssignment2 {
     * @return the biggest integer in the list
     */
     public static int findMaximum(int[] numberList) {
-      int biggestNumber = numberlist[0];
+      int biggestNumber = numberList[0];
 
       for(int i = 1; i < numberList.length; i++) {
         if(numberList[i] >= biggestNumber) {
@@ -112,25 +110,30 @@ public class GithubAssignment2 {
         }
         return str;
     }
-    public static void createArray(int size){
+    public static int[] createArray(int size){
         int list[] = new int[size];
     
-            for( int i =0; i< size; i++)
+            for( int i = 0; i < size; i++)
             {
                 int number = (int)(Math.random()*100);
                 list[i] = number;
             }
+        return list;
     }
-    public static void average( int[] list){
+    public static void findAverage( int[] list){
         int sumOfNumbers = 0;
         int average = 0;
-        int[] difference;
+        int[] difference = new int[list.length];
         for( int i : list){
-        sumOfNumbers += i ;
+            sumOfNumbers += i;
         }
         average = sumOfNumbers / list.length ;
-        for(int i = 0; i<list.length ; i++){
+        System.out.println("Average of the array: " + average);
+        for(int i = 0; i < list.length ; i++){
           difference[i] = list[i] - average;
+        }
+        for (int i = 0; i < difference.length; i++) {
+            System.out.printf("The difference between element %d and average: %d%n", i + 1, difference[i]);
         }
     }
     public static void main(String[] args) 
@@ -181,25 +184,26 @@ public class GithubAssignment2 {
 
             switch (choice){
                 case CREATE_ARRAY:
-                    System.out.println("Please enter the size of the array: ");
+                    System.out.print("Please enter the size of the array:");
                     size = takeValidInput(1, Integer.MAX_VALUE);
-                    array = createRandomArray(size);
+                    array = createArray(size);
                     System.out.println("The array has been created.");
-                    notPrintResult = true;
                     arrayCreated = true;
+                    System.out.println("Elements:" + toString(array));
                     break;
                 case FIND_MINIMUM:
                     result = findMinimum(array);
+                    System.out.println("Minimum element is: " + result);
                     break;
                 case FIND_MAXIMUM:
                     result = findMaximum(array);
+                    System.out.println("Maximum element is: " + result);
                     break;
                 case FIND_AVERAGE:
-                    result = findAverage(array);
+                    findAverage(array);
                     break;
                 case FIND_SUM:
-                    oddEven(array);
-                    notPrintResult = true;
+                    System.out.println(oddEven(array));
                     break;
                 default:
                     notPrintResult = true;
@@ -207,17 +211,13 @@ public class GithubAssignment2 {
             }
 
             if (!notPrintResult){
-                System.out.println("Your result is: " + result);
             }
 
-            System.out.print("Do you want to continue (Enter 1 to continue," +
-                    " any other number to exit: ");
+            System.out.printf("%nDo you want to continue? (Enter 1 to continue," +
+                    " any other number to exit): ");
             if (!scanner.nextLine().equals("1")){
                 wannaContinue = false;
             }
         }
-        
-
-
-
-   
+    }
+}
