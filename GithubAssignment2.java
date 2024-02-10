@@ -3,7 +3,51 @@ import java.util.Scanner
 /**
  * Apply some array operations with a terminal menu.
  */
-public class GithubAssignment2 {    
+public class GithubAssignment2 {  
+    /**
+    * Lower and upper bounds are both inclusive.
+    */
+    public static int takeValidInput(int lowerBound, int upperBound){
+        boolean invalidEntered;
+        boolean noLowerBound = lowerBound == Integer.MIN_VALUE;
+        boolean noUpperBound = upperBound == Integer.MAX_VALUE;
+        int output = 0; // To silence the compiler
+
+        Scanner scanner = new Scanner(System.in);
+        String prompt = String.format("%nPlease enter an integer");
+
+        if (noLowerBound && !noUpperBound){
+            prompt += " less than or equal to " + upperBound;
+        }
+        else if (!noLowerBound && noUpperBound) {
+            prompt += " greater than or equal to " + lowerBound;
+        }
+        else if (!noLowerBound && !noUpperBound) {
+            prompt += " between " + lowerBound + " and " + upperBound;
+        }
+        prompt += ": ";
+
+        do {
+            invalidEntered = false;
+            System.out.println(prompt);
+
+            if (scanner.hasNextInt()){
+                output = scanner.nextInt();
+            }
+            else {
+                invalidEntered = true;
+                scanner.nextLine();
+                continue;
+            }
+
+            if (output < lowerBound || output > upperBound){
+                invalidEntered = true;
+            }
+
+        } while(invalidEntered);
+
+        return output;
+    }  
     /**
     * Method to find the smallest integer in the list of integers
     * @param numberList - the list of numbers
@@ -65,7 +109,8 @@ public class GithubAssignment2 {
           difference[i] = list[i] - average;
         }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         boolean wannaContinue = true;
         boolean arrayCreated = false;
         boolean notPrintResult;
@@ -151,47 +196,4 @@ public class GithubAssignment2 {
 
 
 
-    /**
-    * Lower and upper bounds are both inclusive.
-    */
-    public static int takeValidInput(int lowerBound, int upperBound){
-        boolean invalidEntered;
-        boolean noLowerBound = lowerBound == Integer.MIN_VALUE;
-        boolean noUpperBound = upperBound == Integer.MAX_VALUE;
-        int output = 0; // To silence the compiler
-
-        Scanner scanner = new Scanner(System.in);
-        String prompt = String.format("%nPlease enter an integer");
-
-        if (noLowerBound && !noUpperBound){
-            prompt += " less than or equal to " + upperBound;
-        }
-        else if (!noLowerBound && noUpperBound) {
-            prompt += " greater than or equal to " + lowerBound;
-        }
-        else if (!noLowerBound && !noUpperBound) {
-            prompt += " between " + lowerBound + " and " + upperBound;
-        }
-        prompt += ": ";
-
-        do {
-            invalidEntered = false;
-            System.out.println(prompt);
-
-            if (scanner.hasNextInt()){
-                output = scanner.nextInt();
-            }
-            else {
-                invalidEntered = true;
-                scanner.nextLine();
-                continue;
-            }
-
-            if (output < lowerBound || output > upperBound){
-                invalidEntered = true;
-            }
-
-        } while(invalidEntered);
-
-        return output;
-    }
+    
