@@ -1,4 +1,3 @@
-public class GithubAssignment2{
 
     public static String toString(int[] numbers)
     {
@@ -19,4 +18,4 @@ public class GithubAssignment2{
                 list[i] = number;
             }
     }
-}
+
