@@ -1,4 +1,4 @@
-public class Github-Assignment-2{
+public class GithubAssignment2{
 
     public static String toString(int[] numbers)
     {
