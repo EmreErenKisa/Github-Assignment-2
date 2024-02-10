@@ -1,4 +1,3 @@
-
 //Method to find the sum of elements with odd and even-numbered indexes
 public static String oddEven(int[] array)
 {
