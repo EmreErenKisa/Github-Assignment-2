@@ -4,6 +4,36 @@ import java.util.Scanner
  * Apply some array operations with a terminal menu.
  */
 public class GithubAssignment2 {
+    public static String toString(int[] numbers)
+    {
+        String str = "";
+        for (int i : numbers) 
+        {
+            str += " " +i;
+        }
+        return str;
+    }
+    public static void createArray(int size){
+        int list[] = new int[size];
+    
+            for( int i =0; i< size; i++)
+            {
+                int number = (int)(Math.random()*100);
+                list[i] = number;
+            }
+    }
+    public static void average( int[] list){
+        int sumOfNumbers = 0;
+        int average = 0;
+        int[] difference;
+        for( int i : list){
+        sumOfNumbers += i ;
+        }
+        average = sumOfNumbers / list.length ;
+        for(int i = 0; i<list.length ; i++){
+          difference[i] = list[i] - average;
+        }
+    }
     public static void main(String[] args) {
         boolean wannaContinue = true;
         boolean arrayCreated = false;
@@ -134,36 +164,8 @@ public class GithubAssignment2 {
     }
     
     
-    public static String toString(int[] numbers)
-    {
-        String str = "";
-        for (int i : numbers) 
-        {
-            str += " " +i;
-        }
-        return str;
-    }
     
-    public static void createArray(int size){
-        int list[] = new int[size];
     
-            for( int i =0; i< size; i++)
-            {
-                int number = (int)(Math.random()*100);
-                list[i] = number;
-            }
-    }
     
-    public static void average( int[] list){
-    int sumOfNumbers = 0;
-    int average = 0;
-    int[] difference;
-    for( int i : list){
-    sumOfNumbers += i ;
-    }
-    average = sumOfNumbers / list.length ;
-    for(int i = 0; i<list.length ; i++){
-      difference[i] = list[i] - average;
-    }
-    System.out.println(Arrays.toString(list));
-}
+    
+    
